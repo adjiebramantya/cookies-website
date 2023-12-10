@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+header a.active {
+  @apply text-primary text-sm md:text-3xl font-semibold ms-2 md:ms-8;
+}
+header a {
+  @apply text-secondary text-sm md:text-3xl font-semibold ms-2 md:ms-8;
+}
+
+:root {
+  transition: 3000ms;
+}
