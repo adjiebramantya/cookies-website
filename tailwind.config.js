@@ -12,6 +12,10 @@ export default {
       colors: {
         primary: "#8A270A",
         secondary: "#A86C58",
+        third: "#FFE6D6",
+      },
+      borderRadius: {
+        lg: "80px",
       },
     },
   },

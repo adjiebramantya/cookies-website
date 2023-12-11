@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { device } from "../helpers/device";
 
 const StyledStar = styled.svg`
+  @media ${device.md} {
+    height: 27px;
+  }
+
   height: 16px;
 `;
 function Star() {

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Button from "../../ui/Button";
+import { device } from "../../helpers/device";
 
 const MenuItemStyled = styled.div`
   position: relative;
@@ -16,10 +17,15 @@ const Img = styled.img`
   margin: 10px;
   height: 43px;
   width: 43px;
+
+  @media ${device.md} {
+    height: 60px;
+    width: 60px;
+  }
 `;
 function MenuListItem() {
   return (
-    <MenuItemStyled className="flex items-center w-full">
+    <MenuItemStyled className="flex items-center w-full md:h-20">
       <Img src="/product/kastengel.jpg" />
       <div>
         <h3 className="text-primary font-bold">Kastengel Cookies</h3>
@@ -27,9 +33,15 @@ function MenuListItem() {
       </div>
       <div className="ms-auto me-3">
         {/* <Button size="small">Add to Cart</Button> */}
-        <span className="font-bold text-primary mx-2">-</span>
-        <span className="bg-secondary text-white py-1 px-2  rounded-md">2</span>
-        <span className="font-bold text-primary ms-2">+</span>
+        <span className="font-bold text-primary mx-2 md:text-lg md:mx-4 cursor-pointer">
+          -
+        </span>
+        <span className="bg-secondary text-white py-1 px-2 md:py-3 md:px-4 rounded-md">
+          2
+        </span>
+        <span className="font-bold text-primary ms-2 md:text-lg md:ms-4 cursor-pointer">
+          +
+        </span>
       </div>
     </MenuItemStyled>
   );

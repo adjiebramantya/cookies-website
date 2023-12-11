@@ -5,7 +5,7 @@ function NavBarHome() {
   return (
     <header className="flex col-span-2 gap-1 py-4 ps-2 md:px-7 items-center">
       <Logo />
-      <div className="ms-auto">
+      <div className="ms-auto md:me-36">
         <NavLink className="ms-2 md:ms-8" to="/">
           Home
         </NavLink>

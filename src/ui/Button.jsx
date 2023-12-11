@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { device } from "../helpers/device";
 
 const StyleButton = styled.button`
   border-radius: 5px;
@@ -9,7 +10,12 @@ const StyleButton = styled.button`
       background-color: #8a270a;
       color: white;
       clip-path: polygon(0 0%, 100% 0, 85% 100%, 0% 100%);
-      padding-right: 1rem;
+      padding-right: 7px;
+      @media ${device.md} {
+        padding-right: 15px;
+        padding-left: 0px;
+      }
+
       filter: drop-shadow(0px 0px 30.5px rgba(138, 39, 10, 0.75));
     `}
   ${(props) =>
@@ -18,7 +24,10 @@ const StyleButton = styled.button`
       background-color: #ffe6d6;
       color: #8a270a;
       clip-path: polygon(15% 0, 100% 0%, 100% 100%, 0 100%);
-      padding-left: 1rem;
+      @media ${device.md} {
+        padding-right: 0px;
+        padding-left: 15px;
+      }
       filter: drop-shadow(0px 0px 25.9px rgba(255, 230, 214, 0.5));
     `}
 
@@ -26,6 +35,10 @@ const StyleButton = styled.button`
     props.type === "primary-normal" &&
     css`
       border-radius: 15px;
+      @media ${device.md} {
+        padding: 10px 40px 10px 40px !important;
+      }
+
       padding: 10px !important;
       background-color: #8a270a;
       color: white;
@@ -77,7 +90,7 @@ function Button({ type, children, size = null }) {
       <StyleButton
         type={type}
         size={size}
-        className="font-bold py-2 text-sm w-24 md:w-48 md:h-15 md:mt-24 md:text-xl"
+        className="font-bold py-2 ps-1 text-[9px] w-[4rem] md:w-40 md:h-15 md:text-xl md:px-20"
       >
         {children}
       </StyleButton>
