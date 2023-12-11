@@ -15,10 +15,10 @@
 }
 
 header a.active {
-  @apply text-primary text-sm md:text-3xl font-semibold ms-2 md:ms-8;
+  @apply text-primary text-sm md:text-3xl font-semibold;
 }
 header a {
-  @apply text-secondary text-sm md:text-3xl font-semibold ms-2 md:ms-8;
+  @apply text-secondary text-sm md:text-3xl font-semibold;
 }
 
 :root {

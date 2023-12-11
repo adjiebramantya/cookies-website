@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "./Button";
 import NavBarHome from "./NavBarHome";
+import { Link } from "react-router-dom";
 
 const ImageHome = styled.div`
   border-radius: 55px 0px 0px 0px;
@@ -43,8 +44,12 @@ function Banner() {
           </span>
         </p>
         <div className="mt-4">
-          <Button type="primary">Buy Now</Button>
-          <Button type="secondary">View Cart</Button>
+          <Link to="/menu">
+            <Button type="primary">Buy Now</Button>
+          </Link>
+          <Link to="/cart">
+            <Button type="secondary">View Cart</Button>
+          </Link>
         </div>
       </div>
     </div>

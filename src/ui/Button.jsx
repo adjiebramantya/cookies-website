@@ -35,7 +35,7 @@ const StyleButton = styled.button`
   ${(props) =>
     props.size === "small" &&
     css`
-      font-size: 12px;
+      font-size: 9px;
       width: 4rem;
       padding: 0rem 0.3rem 0.1rem 0.1rem;
     `}
