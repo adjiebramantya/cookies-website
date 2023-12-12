@@ -13,7 +13,7 @@ function CartOverview() {
           Order Via Whatapps
         </Button>
       </div>
-      <div className="relative hidden my-5 mx-5 p-14 md:inline bg-third h-[500px] w-[35%] rounded-3xl z-10">
+      <div className="relative hidden mx-5 p-14 md:inline bg-third h-[500px] w-[35%] rounded-3xl z-10">
         <h4 className="text-primary text-2xl font-bold">Items</h4>
         <CartSectionItem />
         <CartSectionItem />

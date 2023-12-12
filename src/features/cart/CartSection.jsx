@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import MenuList from "../menu/MenuList";
 import CartOverview from "./CartOverview";
+import CartItem from "./CartItem";
 
 function CartSection() {
   const cart = useSelector((state) => state.cart.cart);
@@ -19,8 +19,12 @@ function CartSection() {
           <h3 className="text-primary font-bold text-3xl">Cart</h3>
         </div>
         {cartTotal !== 0 ? (
-          <div className="md:flex">
-            <MenuList />
+          <div className="md:flex md:my-5">
+            <div className=" w-full my-5">
+              {cart.map((item, index) => (
+                <CartItem item={item} key={index} />
+              ))}
+            </div>
             <CartOverview />
           </div>
         ) : (

@@ -3,6 +3,8 @@ import Star from "../../ui/Star";
 import Button from "../../ui/Button";
 import { device } from "../../helpers/device";
 import { formatCurrency } from "../../helpers/helper";
+import { useDispatch } from "react-redux";
+import { addItem } from "../cart/cartSlice";
 
 const MenuItemStyled = styled.div`
   position: relative;
@@ -22,7 +24,20 @@ const Img = styled.img`
 `;
 
 function MenuItem({ item }) {
-  console.log(item);
+  const dispatch = useDispatch();
+
+  function handleAddtoCart() {
+    const newItems = {
+      cookiesId: item.id,
+      name: item.name,
+      image: item.image,
+      quantity: 1,
+      unitPrice: item.price,
+    };
+
+    dispatch(addItem(newItems));
+  }
+
   return (
     <MenuItemStyled className="m-5 md:m-14 rounded-tr-3xl rounded-bl-3xl md:rounded-tr-lg md:rounded-bl-lg">
       <Img
@@ -40,7 +55,9 @@ function MenuItem({ item }) {
         {item.name}
       </h2>
       <div className="flex items-center mt-4 mx-2 md:mx-0 md:ms-4 md:mb-10">
-        <Button type="primary">Add to Cart</Button>
+        <Button type="primary" onclick={handleAddtoCart}>
+          Add to Cart
+        </Button>
         <span className="text-primary text-xs font-bold md:text-xl md:ms-auto md:me-3">
           {formatCurrency(item.price)}
         </span>

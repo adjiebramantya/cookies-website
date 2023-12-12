@@ -9,25 +9,46 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      state.cart.push(action.payload);
+      console.log(action.payload);
+      const cookies = state.cart.find(
+        (item) => item.cookiesId === action.payload.cookiesId
+      );
+      if (cookies) {
+        cookies.quantity++;
+        cookies.totalPrice = cookies.quantity * cookies.unitPrice;
+      } else {
+        state.cart.push({
+          ...action.payload,
+          totalPrice: action.payload.unitPrice,
+        });
+      }
     },
     removeItem(state, action) {
-      // action.paylaod === pizzaId
-      state.cart = state.cart.filter((item) => item.id !== action.payload);
+      console.log(state.cart);
+      state.cart = state.cart.filter(
+        (item) => item.cookiesId !== action.payload
+      );
     },
     addQuantity(state, action) {
-      const cookies = state.cart.find((item) => item.id === action.payload);
+      const cookies = state.cart.find(
+        (item) => item.cookiesId === action.payload
+      );
 
       cookies.quantity++;
       cookies.totalPrice = cookies.quantity * cookies.Price;
     },
     removeQuantity(state, action) {
-      const cookies = state.cart.find((item) => item.id === action.payload);
+      const cookies = state.cart.find(
+        (item) => item.cookiesId === action.payload
+      );
 
       cookies.quantity--;
       cookies.totalPrice = cookies.quantity * cookies.Price;
 
-      if (cookies.quantity === 0) cartSlice.caseReducers.removeItem(cookies.id);
+      if (cookies.quantity === 0)
+        state.cart = state.cart.filter(
+          (item) => item.cookiesId !== cookies.cookiesId
+        );
     },
   },
 });
@@ -36,3 +57,6 @@ export const { addItem, removeItem, addQuantity, removeQuantity } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
+
+export const getStockCurrentByID = (id) => (state) =>
+  state.cart.cart.find((item) => item.cookiesId === id)?.quantity ?? 0;

@@ -84,13 +84,14 @@ StyleButton.defaultProps = {
   type: "primary",
 };
 
-function Button({ type, children, size = null }) {
+function Button({ type, children, size = null, onclick }) {
   return (
     <Parent type={type} size={size}>
       <StyleButton
         type={type}
         size={size}
         className="font-bold py-2 ps-1 text-[9px] w-[4rem] md:w-40 md:h-15 md:text-xl md:px-20"
+        onClick={onclick}
       >
         {children}
       </StyleButton>
