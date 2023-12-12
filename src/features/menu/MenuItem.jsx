@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import Star from "../../ui/Star";
 import Button from "../../ui/Button";
 import { device } from "../../helpers/device";
+import { formatCurrency } from "../../helpers/helper";
 
 const MenuItemStyled = styled.div`
   position: relative;
@@ -20,27 +21,28 @@ const Img = styled.img`
   }
 `;
 
-function MenuItem() {
+function MenuItem({ item }) {
+  console.log(item);
   return (
     <MenuItemStyled className="m-5 md:m-14 rounded-tr-3xl rounded-bl-3xl md:rounded-tr-lg md:rounded-bl-lg">
       <Img
         className="w-[144px] md:w-[315px] md:h-[328px] rounded-tr-3xl rounded-bl-3xl md:rounded-tr-lg md:rounded-bl-lg"
-        src="/product/kastengel.jpg"
+        src={item.image}
       />
 
       <div className="relative flex items-center top-[-20px] md:top-[-40px] ms-2 md:ms-5">
         <Star />
         <span className="text-primary font-bold text-xs ms-1 md:text-2xl">
-          4.7
+          {item.star}
         </span>
       </div>
       <h2 className="text-primary text-xs font-extrabold mt-[-15px] md:text-2xl ms-4 md:mt-0">
-        Kastengel Cookies
+        {item.name}
       </h2>
       <div className="flex items-center mt-4 mx-2 md:mx-0 md:ms-4 md:mb-10">
         <Button type="primary">Add to Cart</Button>
         <span className="text-primary text-xs font-bold md:text-xl md:ms-auto md:me-3">
-          Rp. 20.000
+          {formatCurrency(item.price)}
         </span>
       </div>
     </MenuItemStyled>

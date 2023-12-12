@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Button from "../../ui/Button";
 import { device } from "../../helpers/device";
+import { formatCurrency } from "../../helpers/helper";
+import { useSelector } from "react-redux";
 
 const MenuItemStyled = styled.div`
   position: relative;
@@ -23,13 +25,15 @@ const Img = styled.img`
     width: 60px;
   }
 `;
-function MenuListItem() {
+function MenuListItem({ item }) {
   return (
     <MenuItemStyled className="flex items-center w-full md:h-20">
-      <Img src="/product/kastengel.jpg" />
+      <Img src={item.image} />
       <div>
-        <h3 className="text-primary font-bold">Kastengel Cookies</h3>
-        <p className="text-secondary font-semibold text-sm">Rp. 20.000</p>
+        <h3 className="text-primary font-bold">{item.name}</h3>
+        <p className="text-secondary font-semibold text-sm">
+          {formatCurrency(item.price)}
+        </p>
       </div>
       <div className="ms-auto me-3">
         {/* <Button size="small">Add to Cart</Button> */}
