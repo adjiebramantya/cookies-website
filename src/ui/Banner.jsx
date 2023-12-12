@@ -18,7 +18,7 @@ function Banner() {
   return (
     <div className="relative md:h-screen">
       <img
-        className="absolute hidden md:inline top-[25%] right-[35%]"
+        className="absolute hidden md:inline top-[15%] right-[35%]"
         src="/cookies/cookies1.png"
         alt=""
       />
@@ -29,9 +29,9 @@ function Banner() {
       />
       <div className="grid grid-cols-3">
         <NavBarHome />
-        <ImageHome className="h-[286px] w-[100px] md:w-[605px] md:h-screen" />
+        <ImageHome className="h-[286px] w-[100px] md:w-[35%] md:h-screen" />
       </div>
-      <div className="w-52 md:w-[45%] mx-5 md:mx-32">
+      <div className="w-52 md:w-[40%] mx-5 md:mx-32">
         <h3 className="text-primary mt-8 font-medium md:text-4xl md:mt-28">
           Indulge in Every Crumb Where Sweetness Meets Perfection!
         </h3>
