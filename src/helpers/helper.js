@@ -1,5 +1,5 @@
 export function formatCurrency(price) {
-  const idr = Intl.NumberFormat("en-DE", {
+  const idr = Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
     maximumFractionDigits: 0,
