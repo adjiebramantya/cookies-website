@@ -35,7 +35,6 @@ function CartItem({ item }) {
   function handleAddQty() {
     dispatch(addQuantity(item.cookiesId));
   }
-  console.log(item);
   return (
     <MenuItemStyled className="flex items-center md:h-20">
       <Img src={item.image} />

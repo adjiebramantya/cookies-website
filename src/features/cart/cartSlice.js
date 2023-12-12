@@ -9,7 +9,6 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      console.log(action.payload);
       const cookies = state.cart.find(
         (item) => item.cookiesId === action.payload.cookiesId
       );
@@ -24,7 +23,6 @@ const cartSlice = createSlice({
       }
     },
     removeItem(state, action) {
-      console.log(state.cart);
       state.cart = state.cart.filter(
         (item) => item.cookiesId !== action.payload
       );
@@ -35,7 +33,7 @@ const cartSlice = createSlice({
       );
 
       cookies.quantity++;
-      cookies.totalPrice = cookies.quantity * cookies.Price;
+      cookies.totalPrice = cookies.quantity * cookies.unitPrice;
     },
     removeQuantity(state, action) {
       const cookies = state.cart.find(
@@ -43,7 +41,7 @@ const cartSlice = createSlice({
       );
 
       cookies.quantity--;
-      cookies.totalPrice = cookies.quantity * cookies.Price;
+      cookies.totalPrice = cookies.quantity * cookies.unitPrice;
 
       if (cookies.quantity === 0)
         state.cart = state.cart.filter(
