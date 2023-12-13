@@ -8,8 +8,8 @@ function CartOverview() {
 
   const total = cart.reduce((acc, cookies) => acc + cookies.totalPrice, 0);
 
-  const url = `https://wa.me/+6282228067806?text=${cart.map(
-    (item) => "*" + item.quantity + "*x " + item.name + "%0A"
+  const url = `https://wa.me/+6282228607806?text=${cart.map(
+    (item) => "*" + item.quantity + "* x " + item.name
   )}%0A%0ATotal :%0A*${formatCurrency(total)}*`;
 
   return (
