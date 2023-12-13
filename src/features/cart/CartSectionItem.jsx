@@ -1,7 +1,6 @@
 import { formatCurrency } from "../../helpers/helper";
 
 function CartSectionItem({ item }) {
-  console.log(item);
   return (
     <div className="flex justify-between my-3">
       <div className="text-secondary font-semibold">

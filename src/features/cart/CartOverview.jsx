@@ -21,7 +21,7 @@ function CartOverview() {
             {formatCurrency(total)}
           </h3>
         </div>
-        <Button size="small" type="primary-normal">
+        <Button size="small" type="primary-normal" link={url}>
           Order Via Whatapps
         </Button>
       </div>
