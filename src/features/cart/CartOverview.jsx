@@ -10,7 +10,7 @@ function CartOverview() {
 
   const url = `https://wa.me/+6282228067806?text=${cart.map(
     (item) => item.quantity + "x " + item.name + "%0A"
-  )}%0A%0A%0ATotal :%0A${total}`;
+  )}%0A%0ATotal :%0A${formatCurrency(total)}`;
 
   return (
     <>
