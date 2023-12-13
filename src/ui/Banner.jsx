@@ -2,14 +2,22 @@ import styled from "styled-components";
 import Button from "./Button";
 import NavBarHome from "./NavBarHome";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const ImageHome = styled.div`
+// const ImageHome = styled.div`
+//   border-radius: 55px 0px 0px 0px;
+//   background: url("/homeProduct.jpg"),
+//     lightgray -28.891px -58.161px / 216.4% 132.042% no-repeat;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   position: absolute;
+//   right: 0px;
+//   top: 0px;
+// `;
+const ImageHome = styled(LazyLoadImage)`
   border-radius: 55px 0px 0px 0px;
-  background: url("/homeProduct.jpg"),
-    lightgray -28.891px -58.161px / 216.4% 132.042% no-repeat;
-  background-size: cover;
-  background-repeat: no-repeat;
   position: absolute;
+  object-fit: cover;
   right: 0px;
   top: 0px;
 `;
@@ -29,7 +37,10 @@ function Banner() {
       />
       <div className="grid grid-cols-3">
         <NavBarHome />
-        <ImageHome className="h-[286px] w-[100px] md:w-[35%] md:h-screen" />
+        <ImageHome
+          src="/homeProduct.jpg"
+          className="h-[286px] w-[100px] md:w-[35%] md:h-screen"
+        />
       </div>
       <div className="w-52 md:w-[40%] mx-5 md:mx-32">
         <h3 className="text-primary mt-8 font-medium md:text-4xl md:mt-28">

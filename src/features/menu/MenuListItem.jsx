@@ -10,6 +10,8 @@ import {
   removeQuantity,
 } from "../cart/cartSlice";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 const MenuItemStyled = styled.div`
   position: relative;
   margin: 10px;
@@ -20,7 +22,7 @@ const MenuItemStyled = styled.div`
   box-shadow: 0px 4px 135.9px -72px rgba(138, 39, 10, 0.25),
     0 6px 20px 0 rgba(138, 39, 10, 0.25);
 `;
-const Img = styled.img`
+const Img = styled(LazyLoadImage)`
   border-radius: 10px;
   margin: 10px;
   height: 43px;
@@ -56,7 +58,8 @@ function MenuListItem({ item }) {
 
   return (
     <MenuItemStyled className="flex items-center w-full md:h-20">
-      <Img src={item.image} />
+      <Img src={item.image} alt="Image Alt" />
+      {/* <Img src={item.image} /> */}
       <div>
         <h3 className="text-primary font-bold">{item.name}</h3>
         <p className="text-secondary font-semibold text-sm">

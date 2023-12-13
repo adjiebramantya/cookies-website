@@ -5,6 +5,7 @@ import { device } from "../../helpers/device";
 import { formatCurrency } from "../../helpers/helper";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, getStockCurrentByID, removeItem } from "../cart/cartSlice";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const MenuItemStyled = styled.div`
   position: relative;
@@ -14,7 +15,7 @@ const MenuItemStyled = styled.div`
     0 6px 20px 0 rgba(138, 39, 10, 0.25);
 `;
 
-const Img = styled.img`
+const Img = styled(LazyLoadImage)`
   object-fit: cover;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 60%);
 

@@ -3,6 +3,7 @@ import { formatCurrency } from "../../helpers/helper";
 import { device } from "../../helpers/device";
 import { useDispatch } from "react-redux";
 import { addQuantity, removeQuantity } from "./cartSlice";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const MenuItemStyled = styled.div`
   position: relative;
@@ -14,7 +15,7 @@ const MenuItemStyled = styled.div`
   box-shadow: 0px 4px 135.9px -72px rgba(138, 39, 10, 0.25),
     0 6px 20px 0 rgba(138, 39, 10, 0.25);
 `;
-const Img = styled.img`
+const Img = styled(LazyLoadImage)`
   border-radius: 10px;
   margin: 10px;
   height: 43px;
