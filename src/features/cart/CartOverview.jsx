@@ -7,6 +7,11 @@ function CartOverview() {
   const cart = useSelector((state) => state.cart.cart);
 
   const total = cart.reduce((acc, cookies) => acc + cookies.totalPrice, 0);
+
+  const url = `https://wa.me/+6282228067806?text=${cart.map(
+    (item) => item.quantity + "x " + item.name + "%0A"
+  )}%0A%0A%0ATotal :%0A${total}`;
+
   return (
     <>
       <div className="fixed bottom-0 py-5 px-10 bg-white flex justify-between items-center w-full md:hidden">
@@ -32,7 +37,9 @@ function CartOverview() {
           </div>
         </div>
         <div className="absolute flex justify-center inset-x-0 bottom-5">
-          <Button type="primary-normal">Order Via Whatapps</Button>
+          <Button type="primary-normal" link={url}>
+            Order Via Whatapps
+          </Button>
         </div>
       </div>
     </>
