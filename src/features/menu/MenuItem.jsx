@@ -3,8 +3,8 @@ import Star from "../../ui/Star";
 import Button from "../../ui/Button";
 import { device } from "../../helpers/device";
 import { formatCurrency } from "../../helpers/helper";
-import { useDispatch } from "react-redux";
-import { addItem } from "../cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, getStockCurrentByID, removeItem } from "../cart/cartSlice";
 
 const MenuItemStyled = styled.div`
   position: relative;
@@ -25,6 +25,7 @@ const Img = styled.img`
 
 function MenuItem({ item }) {
   const dispatch = useDispatch();
+  const checkStock = useSelector(getStockCurrentByID(item.id));
 
   function handleAddtoCart() {
     const newItems = {
@@ -36,6 +37,10 @@ function MenuItem({ item }) {
     };
 
     dispatch(addItem(newItems));
+  }
+
+  function handleRemove() {
+    dispatch(removeItem(item.id));
   }
 
   return (
@@ -55,9 +60,16 @@ function MenuItem({ item }) {
         {item.name}
       </h2>
       <div className="flex items-center mt-4 mx-2 md:mx-0 md:ms-4 md:mb-10">
-        <Button type="primary" onclick={handleAddtoCart}>
-          Add to Cart
-        </Button>
+        {checkStock === 0 ? (
+          <Button type="primary" onclick={handleAddtoCart}>
+            Add to Cart
+          </Button>
+        ) : (
+          <Button type="primary" onclick={handleRemove}>
+            Remove
+          </Button>
+        )}
+
         <span className="text-primary text-xs font-bold md:text-xl md:ms-auto md:me-3">
           {formatCurrency(item.price)}
         </span>
