@@ -1,13 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../ui/Button";
 import CartSectionItem from "./CartSectionItem";
 import { formatCurrency } from "../../helpers/helper";
+import { emptyCart } from "./cartSlice";
 
 function CartOverview() {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
 
   const total = cart.reduce((acc, cookies) => acc + cookies.totalPrice, 0);
-  console.log(cart);
+
+  function handleEmptyCart() {
+    dispatch(emptyCart());
+  }
 
   const url = `https://wa.me/+6282228607806?text=${cart
     .map((item) => "*" + item.quantity + "* x " + item.name + "%0A")
@@ -22,7 +27,12 @@ function CartOverview() {
             {formatCurrency(total)}
           </h3>
         </div>
-        <Button size="small" type="primary-normal" link={url}>
+        <Button
+          size="small"
+          type="primary-normal"
+          link={url}
+          onclick={handleEmptyCart}
+        >
           Order Via Whatapps
         </Button>
       </div>
@@ -38,7 +48,7 @@ function CartOverview() {
           </div>
         </div>
         <div className="absolute flex justify-center inset-x-0 bottom-5">
-          <Button type="primary-normal" link={url}>
+          <Button type="primary-normal" link={url} onclick={handleEmptyCart}>
             Order Via Whatapps
           </Button>
         </div>

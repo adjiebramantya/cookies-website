@@ -48,10 +48,13 @@ const cartSlice = createSlice({
           (item) => item.cookiesId !== cookies.cookiesId
         );
     },
+    emptyCart(state) {
+      state.cart = [];
+    },
   },
 });
 
-export const { addItem, removeItem, addQuantity, removeQuantity } =
+export const { addItem, removeItem, addQuantity, removeQuantity, emptyCart } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
