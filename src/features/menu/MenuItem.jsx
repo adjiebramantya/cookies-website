@@ -57,7 +57,7 @@ function MenuItem({ item }) {
           {item.star}
         </span>
       </div>
-      <h2 className="text-primary text-xs font-extrabold mt-[-15px] md:text-2xl ms-4 md:mt-0">
+      <h2 className="text-primary text-xs font-extrabold mt-[-15px] md:text-2xl ms-1 md:ms-4 md:mt-0">
         {item.name}
       </h2>
       <div className="flex items-center mt-4 mx-2 md:mx-0 md:ms-4 md:mb-10">
