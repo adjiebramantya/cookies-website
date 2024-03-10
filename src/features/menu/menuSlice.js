@@ -6,14 +6,14 @@ const initialState = {
       id: 1,
       image: "/product/kastengel.jpg",
       name: "Kastengel 400 gram",
-      price: 75000,
+      price: 60000,
       star: 4.8,
     },
     {
       id: 2,
       image: "/product/kastengel.jpg",
       name: "Kastengel 500 gram",
-      price: 60000,
+      price: 75000,
       star: 4.8,
     },
     {

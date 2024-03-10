@@ -47,7 +47,7 @@ function MenuItem({ item }) {
   return (
     <MenuItemStyled className="m-5 md:m-14 rounded-tr-3xl rounded-bl-3xl md:rounded-tr-lg md:rounded-bl-lg">
       <Img
-        className="w-[144px] md:w-[315px] md:h-[328px] rounded-tr-3xl rounded-bl-3xl md:rounded-tr-lg md:rounded-bl-lg"
+        className="w-[144px] h-[124px] md:w-[315px] md:h-[328px] rounded-tr-3xl rounded-bl-3xl md:rounded-tr-lg md:rounded-bl-lg"
         src={item.image}
       />
 
