@@ -34,7 +34,7 @@ const initialState = {
       id: 5,
       image: "/product/nastar.jpg",
       name: "Nastar 400 gram",
-      price: 65000,
+      price: 55000,
       star: 4.9,
     },
     {
