@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import CartOverview from "./CartOverview";
 import CartItem from "./CartItem";
-import CreateUser from "../user/createUser";
 import { useState } from "react";
 import Button from "../../ui/Button";
+import UserCreate from "../user/UserCreate";
 
 function CartSection() {
   const cart = useSelector((state) => state.cart.cart);
@@ -36,7 +36,7 @@ function CartSection() {
           <h3 className="text-primary font-bold text-3xl">Cart</h3>
         </div>
         {(user.name === "" && user.date === "") || activeUpdate ? (
-          <CreateUser isOpenHandle={setActiceUpdate} />
+          <UserCreate isOpenHandle={setActiceUpdate} />
         ) : cartTotal !== 0 ? (
           <div className="md:flex md:my-5">
             <div className=" w-full my-5">

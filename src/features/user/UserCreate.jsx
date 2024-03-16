@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "./userSlice";
 import { stringToDate } from "../../helpers/helper";
 
-function CreateUser({ isOpenHandle }) {
+function UserCreate({ isOpenHandle }) {
   const user = useSelector((state) => state.user);
   const [name, setName] = useState(user.name ? user.name : "");
   const [date, setDate] = useState(user.date ? stringToDate(user.date) : "");
@@ -69,4 +69,4 @@ function CreateUser({ isOpenHandle }) {
   );
 }
 
-export default CreateUser;
+export default UserCreate;
