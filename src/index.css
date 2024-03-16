@@ -21,6 +21,10 @@ header a {
   @apply text-secondary text-sm md:text-3xl font-semibold;
 }
 
+.input {
+  @apply rounded-full border border-primary px-4 py-2 text-sm transition-all text-primary duration-300 placeholder:text-secondary focus:outline-none focus:ring focus:ring-secondary md:px-6 md:py-3;
+}
+
 :root {
   transition: 3000ms;
 }

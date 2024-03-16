@@ -3,18 +3,23 @@ import Button from "../../ui/Button";
 import CartSectionItem from "./CartSectionItem";
 import { formatCurrency } from "../../helpers/helper";
 import { emptyCart } from "./cartSlice";
+import { emptyUser } from "../user/userSlice";
 
 function CartOverview() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
+  const user = useSelector((state) => state.user);
 
   const total = cart.reduce((acc, cookies) => acc + cookies.totalPrice, 0);
 
   function handleEmptyCart() {
     dispatch(emptyCart());
+    dispatch(emptyUser());
   }
 
-  const url = `https://wa.me/+6285791967436?text=Hai kak, saya mau pesen :%0A%0A${cart
+  const url = `https://wa.me/+6285791967436?text=Hai kak, saya ${
+    user.name
+  } mau pesen untuk tanggal ${user.date} :%0A%0A${cart
     .map((item) => "*" + item.quantity + "* x " + item.name + "%0A")
     .join("")}%0ATotal :%0A*${formatCurrency(total)}*`;
 

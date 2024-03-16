@@ -7,3 +7,9 @@ export function formatCurrency(price) {
 
   return idr.format(price);
 }
+
+export const stringToDate = (dateString) => {
+  console.log(dateString);
+  const [day, month, year] = dateString.split("/");
+  return new Date([month, day, year].join("/"));
+};

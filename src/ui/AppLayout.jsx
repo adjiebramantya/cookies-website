@@ -5,7 +5,7 @@ function AppLayout() {
   return (
     <div>
       <img
-        className="absolute w-10 left-[15%] top-[20%] md:w-auto md:inline md:left-[15%] md:top-[20%]"
+        className="absolute w-10 left-[15%] top-[10%] md:w-auto md:inline md:left-[15%] md:top-[20%]"
         src="/cookies/cookies2.png"
         alt=""
       />
