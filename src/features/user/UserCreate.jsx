@@ -50,7 +50,6 @@ function UserCreate({ isOpenHandle }) {
         />
         <div>
           <ReactDatePicker
-            closeOnScroll={(e) => e.target === document}
             className="input w-72 md:w-80"
             placeholderText="Pick-up date (Waktu pengambilan)"
             selected={date}
